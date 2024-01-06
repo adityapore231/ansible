@@ -1,8 +1,6 @@
 ---
 - hosts: all 
   become : true
-  vars:
-      ansible_python_interpreter: /usr/local/lib/python3.10
   tasks: 
     - name: install nginx
       apt: 
@@ -50,10 +48,11 @@
         state: started
         enabled: yes
     - name: running container
-      docker_container:
+      community.docker.docker_container:
         name: httpd_container
         image: httpd
         exposed_ports:
+        state: present
         - '8080'
   handlers:
     - name: restart docker
