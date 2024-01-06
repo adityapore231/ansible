@@ -50,4 +50,6 @@
       community.docker.docker_container:
         name: httpd
         image: httpd
-        state: present
+        state: started
+        ports:
+          - 80:8080
