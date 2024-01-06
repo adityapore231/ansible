@@ -14,7 +14,6 @@
       service:
         name: nginx
         state: restarted
-    ---
     - name: installa dipendenze
       apt:
         name: "{{item}}"
