@@ -52,7 +52,7 @@
         name: httpd_container
         image: httpd
         exposed_ports:
-        - 8080
+        - '8080'
   handlers:
     - name: restart docker
       service: 
