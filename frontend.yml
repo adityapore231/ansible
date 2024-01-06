@@ -14,4 +14,19 @@
       service:
         name: nginx
         state: restarted
+    - name: install docker
+      apt:
+        name: docker.io
+        state: latest
+    - name: pull an image
+      docker_image:
+        name: httpd
+    - name: running container
+      docker_container:
+        name: httpd_container
+        image: httpd
+        exposed_ports:
+        - 8080
+
+
         
