@@ -14,10 +14,40 @@
       service:
         name: nginx
         state: restarted
-    - name: install docker
+    ---
+    - name: installa dipendenze
       apt:
-        name: docker
+        name: "{{item}}"
+        state: present
+        update_cache: yes
+      loop:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - gnupg-agent
+        - software-properties-common
+    - name: aggiungi chiave GPG
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+    - name: aggiungi repository docker
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu bionic stable
+        state: present
+    - name: installa docker
+      apt:
+        name: "{{item}}"
         state: latest
+        update_cache: yes
+      loop:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+    - name: assicurati che docker sia attivo
+      service:
+        name: docker
+        state: started
+        enabled: yes
     - name: pull an image
       docker_image:
         name: httpd
@@ -27,6 +57,16 @@
         image: httpd
         exposed_ports:
         - 8080
+  handlers:
+    - name: restart docker
+      service: 
+        name: docker 
+        state: restarted
+    - name: install docker
+      apt:
+        name: docker
+        state: latest
+    
 
 
         
