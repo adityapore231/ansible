@@ -2,7 +2,7 @@
 - hosts: all 
   become : true
   vars:
-      ansible_python_interpreter: /usr/bin/python3
+      ansible_python_interpreter: /usr/local/lib/python3.10/dist-packages
   tasks: 
     - name: install nginx
       apt: 
