@@ -1,0 +1,18 @@
+---
+- hosts: all 
+  become : true
+  tasks: 
+    - name: install nginx
+      apt: 
+        name: nginx 
+        state: latest
+    - name: copy html
+      copy:
+        name: html
+        src: index.html
+        dest: /usr/share/nginx/html/index.html
+    - name: start nginx
+      service:
+        name: nginx
+        state: started
+        
