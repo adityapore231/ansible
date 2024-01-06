@@ -43,7 +43,7 @@
 
     - name: Pull default Docker image
       community.docker.docker_image:
-        name: "{{ default_container_image }}"
+        name: httpd
         source: pull
 
     - name: Create default containers
