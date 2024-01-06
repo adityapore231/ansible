@@ -9,7 +9,7 @@
     - name: copy html
       copy:
         src: index.html
-        dest: /usr/share/nginx/html/index.html
+        dest: /var/www/html/index.nginx-debian.html
     - name: start nginx
       service:
         name: nginx
