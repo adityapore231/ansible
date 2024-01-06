@@ -16,7 +16,7 @@
         state: restarted
     - name: install docker
       apt:
-        name: docker.io
+        name: docker
         state: latest
     - name: pull an image
       docker_image:
