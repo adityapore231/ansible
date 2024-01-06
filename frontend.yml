@@ -47,9 +47,6 @@
         name: docker
         state: started
         enabled: yes
-    - name: pull an image
-      docker_image:
-        name: httpd
     - name: running container
       docker_container:
         name: httpd_container
