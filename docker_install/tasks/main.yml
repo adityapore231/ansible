@@ -40,7 +40,7 @@
 
 - name: Pull default Docker image
   community.docker.docker_image:
-    name: adipore/register-app:latest
+    name: adipore/register-app
     source: pull
 
 - name: Create default containers
