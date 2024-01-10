@@ -1,20 +1,21 @@
 ---
 # tasks file for backend
-- name: downlaod tomcat
-  get_url:
-    url: https://downloads.apache.org/tomcat/tomcat-9/v9.0.85/bin/apache-tomcat-9.0.85.tar.gz 
-    dest: /opt
+- name: install java
+  package: 
+    name: java-11-openjdk
+    state: latest
 - name: extract
   unarchive:
-    src: /opt
-    dest: /opt
-    remote_src: yes
+    src: "https://downloads.apache.org/tomcat/tomcat-9/v9.0.85/bin/apache-tomcat-9.0.85.tar.gz"
+    dest: /opt/
+    remote_src: true
 
 - name: create deamon
   become: true
   get_url:
     src: https://s3-us-west-2.amazonaws.com/studentapi-cit/tomcat-init
     dest: /etc/init.d/tomcatd
+    mode: 755
   notify: start tomcat
 
 - name: deploy war
