@@ -12,10 +12,10 @@
 
 - name: create deamon
   become: true
-  get_url:
-    url: https://s3-us-west-2.amazonaws.com/studentapi-cit/tomcat-init
-    dest: /etc/init.d/tomcatd
-    mode: 755
+  copy:
+    src: tomcat.service
+    dest: /etc/systemd/system/tomcat.service
+    mode: 664
   notify: start tomcat
 
 - name: deploy war
