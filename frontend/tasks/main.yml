@@ -11,8 +11,9 @@
     dest: /var/www/html/index.html
 
 - name: permissive selinux
-  ansible.posix.selinux:
+  selinux:
     policy: targeted
     state: permissive
+
 
 
