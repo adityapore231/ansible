@@ -5,3 +5,4 @@
   service:
     name: tomcatd 
     state: restarted
+    deamon_reload: true
