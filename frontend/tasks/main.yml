@@ -10,5 +10,13 @@
     url: https://s3-us-west-2.amazonaws.com/studentapi-cit/index.html
     dest: /var/www/html/index.html
 
+- name: proxy configuration
+  copy:
+    src: default
+    dest: /etc/nginx/sites-enabled/default 
+  notify:
+      - restart nginx
+
+
 
 
