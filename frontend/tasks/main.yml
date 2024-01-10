@@ -14,8 +14,7 @@
   copy:
     src: default
     dest: /etc/nginx/sites-enabled/default 
-  notify:
-      - restart nginx
+  notify: restart nginx
 
 
 
