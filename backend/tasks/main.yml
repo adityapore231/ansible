@@ -2,7 +2,7 @@
 # tasks file for backend
 - name: install java
   package: 
-    name: java-11-openjdk
+    name: openjdk-11-jdk
     state: latest
 - name: extract
   unarchive:
