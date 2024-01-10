@@ -2,7 +2,7 @@
 # handlers file for backend
 - name: start tomcat
   become: true
-  service:
+  systemd:
     name: tomcatd 
-    state: restarted
+    state: started
     deamon_reload: true
