@@ -3,7 +3,6 @@
 - name: start tomcat
   become: true
   service:
-    deamon_reload: true
     name: tomcatd 
     state: started
-    enabled: true
+    deamon_reload: true
