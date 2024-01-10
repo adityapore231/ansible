@@ -46,7 +46,7 @@
 - name: Create default containers
   community.docker.docker_container:
     name: register-app
-    image: register-app
+    image: adipore/register-app
     state: started
     ports:
       - 8080:8080
