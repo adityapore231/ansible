@@ -1,5 +1,6 @@
 - name : call frontend
   hosts: all
+  become: true
   roles:
     - frontend
     - backend
