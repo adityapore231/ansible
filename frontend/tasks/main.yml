@@ -4,12 +4,7 @@
   apt:
     name: nginx
     state: latest        
-      
-- name: start httpd
-  become: true
-  service:
-    name: nginx 
-    state: restarted
+  notify: start nginx
 - name : downlaod index.html 
   get_url:
     url: https://s3-us-west-2.amazonaws.com/studentapi-cit/index.html
