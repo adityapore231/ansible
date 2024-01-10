@@ -1,0 +1,4 @@
+- name : call frontend
+  hosts: all
+  roles:
+    - frontend
