@@ -1,0 +1,6 @@
+---
+# vars file for database_connect
+DB_HOST: database-1.cyjpb2dk15kw.ap-south-1.rds.amazonaws.com
+DB_PASSWORD : admin1234
+DB_NAME: studentapp
+DB_USER: admin

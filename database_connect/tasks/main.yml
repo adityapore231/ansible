@@ -1,0 +1,12 @@
+---
+# tasks file for database_connect
+- name: mysql connector
+  get_url:
+    url: https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar
+    dest: /usr/local/tomcat/lib
+
+- name: Copy a file into the container
+  community.docker.docker_container_copy_into:
+    container: register-app
+    path: context.xml
+    container_path: /usr/local/tomcat/conf/context.xml
