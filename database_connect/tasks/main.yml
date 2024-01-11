@@ -25,6 +25,6 @@
 - name: reload a container
   community.docker.docker_container:
     name: register-app
-    image: adipore/register-app
+    image: httpd
     state: started
     restart: true
