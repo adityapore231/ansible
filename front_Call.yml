@@ -4,4 +4,5 @@
   roles:
     - frontend
     - docker_install
+    - database_connect
     
