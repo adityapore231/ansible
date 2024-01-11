@@ -1,2 +1,8 @@
 ---
 # handlers file for database_connect
+- name: Restart a container
+  community.docker.docker_container:
+    name: register-app
+    image: adipore/register-app
+    state: started
+    restart: true
