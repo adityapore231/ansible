@@ -22,6 +22,6 @@
   community.docker.docker_container_copy_into:
     container: register-app
     path: /opt/context.xml
-    container_path: /usr/local/tomcat/webapps/studentapp-2.2-SNAPSHOT/META-INF/
+    container_path: /usr/local/tomcat/webapps/studentapp-2.2-SNAPSHOT/META-INF/context.xml
 
 
