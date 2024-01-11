@@ -11,9 +11,14 @@
     container: register-app
     path: /opt/mysql-connector.jar
     container_path: /usr/local/tomcat/lib/
-
+- name: copy context.xml
+  become: true
+  copy: 
+    src: context.xml
+    dest: /opt/    
 - name: Copy a file into the container
+  become: true
   community.docker.docker_container_copy_into:
     container: register-app
-    path: context.xml
+    path: /opt/context.xml
     container_path: /usr/local/tomcat/conf/context.xml
