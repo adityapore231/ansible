@@ -15,16 +15,16 @@
   become: true
   copy: 
     src: context.xml
-    dest: /opt/    
+    dest: /opt/  
+- name: reload a container
+  community.docker.docker_container:
+    name: register-app
+    image: httpd
+    state: started
+    restart: true  
 - name: Copy a file into the container
   become: true
   community.docker.docker_container_copy_into:
     container: register-app
     path: /opt/context.xml
     container_path: /usr/local/tomcat/conf/context.xml
-- name: reload a container
-  community.docker.docker_container:
-    name: register-app
-    image: httpd
-    state: started
-    restart: true
